@@ -24,7 +24,7 @@
   </head>
   <body>
     <container id="main_container">
-      <h1 id="header">Daily Task Progress</h1>
+      <h1 id="header"></h1>
       <div class="progress">
         <div
           class="progress-bar bg-success"
@@ -39,7 +39,7 @@
       </div>
       <div>
         <!-- Track players streak with JS -->
-        <p1 id="streak_counter"> Streak: x Days! </p1>
+        <p1 id="streak_counter"></p1>
       </div>
       <div id="middle_section">
         <h3>Today's Tasks</h3>
@@ -55,12 +55,9 @@
         </div>
       </div>
       <div id="bottom_section">
-        <!-- TODO: Pull this quote from a DB somewhere when the page loads -->
+        <!-- DONE: Pull this quote from a DB somewhere when the page loads -->
         <div>
-          <p1 id="quote"
-            >Quote of the day: "Something inspirational, probably pulled from a
-            database somewhere" - Someone
-          </p1>
+          <p1 id="quote"></p1>
         </div>
         <!-- TODO: Add button functionality through JS -->
         <div>
@@ -76,5 +73,7 @@
         </div>
       </div>
     </container>
+    <!-- JS -->
+    <script src="./script.js"></script>
   </body>
 </html>
