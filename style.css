@@ -1,31 +1,38 @@
 :root {
   display: flex;
+  height: 100vh;
+  width: 100vw;
 }
 
 #main_container {
-  background-color: #efc982;
   text-align: center;
 }
 
 #header {
+  font-family: "Anton", sans-serif;
   border: 1px solid blue;
 }
 
 #streak_counter {
+  font-family: "Anton", sans-serif;
   font-weight: 1000;
 }
 
 #middle_section {
+  font-family: "Anton", sans-serif;
   border: 1px solid red;
 }
 
 #bottom_section {
+  display: block;
+  font-family: "Anton", sans-serif;
   border: 1px solid black;
 }
 
 #quote {
   border: 1px solid black;
   font-family: "Noto Serif Lao", serif;
+  font-size: 14px;
 }
 
 #experience {
