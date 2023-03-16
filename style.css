@@ -1,0 +1,37 @@
+:root {
+  display: flex;
+}
+
+#main_container {
+  background-color: #efc982;
+  text-align: center;
+}
+
+#header {
+  border: 1px solid blue;
+}
+
+#streak_counter {
+  font-weight: 1000;
+}
+
+#middle_section {
+  border: 1px solid red;
+}
+
+#bottom_section {
+  border: 1px solid black;
+}
+
+#quote {
+  border: 1px solid black;
+  font-family: "Noto Serif Lao", serif;
+}
+
+#experience {
+  border: 1px solid black;
+}
+
+#level {
+  border: 1px solid black;
+}
