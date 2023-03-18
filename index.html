@@ -22,7 +22,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body id="body">
     <container id="main_container">
       <h1 id="header"></h1>
       <div class="progress">
@@ -33,38 +33,36 @@
           aria-valuenow="25"
           aria-valuemin="0"
           aria-valuemax="100"
+          id="progress_bar"
         >
           25%
         </div>
       </div>
+
       <div>
         <!-- Track players streak with JS -->
         <p1 id="streak_counter"></p1>
       </div>
+
       <div id="middle_section">
         <h3>Today's Tasks</h3>
-        <div class="form-check">
-          <!-- TODO: Make this check list of daily items dynamically -->
-          <input
-            class="form-check-input"
-            type="checkbox"
-            value=""
-            id="first_item"
-          />
-          <label class="form-check-label" for="first_item"> First item </label>
-        </div>
+        <div id="to_do_list"></div>
       </div>
+
       <div id="bottom_section">
         <!-- DONE: Pull this quote from a DB somewhere when the page loads -->
         <div>
           <p1 id="quote"></p1>
         </div>
+
         <!-- TODO: Add button functionality through JS -->
-        <div>
+        <div id="button_div">
           <button type="button" class="btn btn-primary" id="add_task_button">
             Add a task
           </button>
         </div>
+
+        <div id="form_div"></div>
         <!-- TODO: Track player exp through JS method -->
         <div>
           <p1 id="experience"></p1>
@@ -73,7 +71,7 @@
         </div>
       </div>
     </container>
-    <!-- JS -->
+    <!-- JS script reference-->
     <script src="./script.js"></script>
   </body>
 </html>
