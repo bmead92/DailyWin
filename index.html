@@ -26,21 +26,22 @@
     <container id="main_container">
       <h1 id="header"></h1>
       <div class="progress">
+        <!-- TODO: Update progress bar based on completed tasks w/ JS-->
         <div
           class="progress-bar bg-success"
           role="progressbar"
-          style="width: 25%"
-          aria-valuenow="25"
+          style="width: 0%"
+          aria-valuenow="0"
           aria-valuemin="0"
           aria-valuemax="100"
           id="progress_bar"
         >
-          25%
+          0%
         </div>
       </div>
 
       <div>
-        <!-- Track players streak with JS -->
+        <!-- TODO: Track players streak with JS -->
         <p1 id="streak_counter"></p1>
       </div>
 
@@ -55,7 +56,7 @@
           <p1 id="quote"></p1>
         </div>
 
-        <!-- TODO: Add button functionality through JS -->
+        <!-- DONE: Add button functionality through JS -->
         <div id="button_div">
           <button type="button" class="btn btn-primary" id="add_task_button">
             Add a task

@@ -4,9 +4,14 @@ const unsplash_api_url = "https://api.unsplash.com/photos/";
 const unsplash_access_key = "YjSH_enuPwnF_m61VtLbNdmyI12J5DtWCJHbyq7iJ8c";
 const quote_element = document.getElementById("quote");
 const add_task_button = document.getElementById("add_task_button");
+const progress_bar = document.getElementById("progress_bar");
 const default_bg = "./default_bg.png";
 var user_daily_streak = 0;
 var task_counter = 0;
+var tasks_completed = 0;
+const max_tasks = 5;
+const min_tasks = 0;
+var task_elements = [];
 
 const months = {
   1: "January",
@@ -29,10 +34,12 @@ document.onload = setUp();
 async function setUp() {
   todays_date();
   track_streak();
-  fill_quote_element(await getAPI(quotes_api_url));
+  fill_quote_element(await get_API(quotes_api_url));
   fill_background(
-    await getAPI(
-      `${unsplash_api_url}?query=pastel&count=${number_of_photos}&client_id=${unsplash_access_key}`
+    await get_API(
+      `
+      ${unsplash_api_url}?query=pastel&count=${number_of_photos}&client_id=${unsplash_access_key}
+      `
     )
   );
   get_player_exp();
@@ -64,7 +71,15 @@ function track_streak() {
 }
 
 /* Method for adding functionality to the checkbox items in the to-do list */
-function update_progress_bar() {}
+function update_progress_bar() {
+  console.log(
+    `Tasks completed = ${tasks_completed} of ${task_elements.length}`
+  );
+  const percentage = (tasks_completed / task_counter).toFixed(2) * 100;
+  progress_bar.textContent = `${percentage}%`;
+  progress_bar.style = `width:${percentage}%`;
+  progress_bar.ariaValueNow = `${percentage}`;
+}
 
 add_task_button.onclick = function () {
   // Create a form to fill out
@@ -90,20 +105,55 @@ add_task_button.onclick = function () {
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
+            value="${task_counter}"
             id="item_${task_counter}">
           <label class="form-check-label" for="item_${task_counter}">
-          ${task.value}
+          <span id="label_${task_counter}"> ${task.value} </span>
           </label>
         </div>
     `;
     task_form.style.display = "none";
+    task_elements[task_counter - 1] = document.getElementById(
+      `item_${task_counter}`
+    );
     event.preventDefault();
   });
 };
 
-/* Method for getting the quote of the day */
-async function getAPI(url) {
+const to_do_list = document.getElementById("to_do_list");
+to_do_list.addEventListener("change", () => {
+  console.log(task_elements);
+
+  // when a checkbox is selected, cross out the text
+  // update the progress bar
+  // when a check is unchecked, uncross the text
+  // update the progress bar
+});
+
+// task_elements.forEach((element) => {
+//   element_label_text_field = document.getElementById(
+//     `label_${element.value}`
+//   );
+// });
+// if (element.checked) {
+//   // strike through
+//   element_label_text_field.style.textDecoration = "line-through";
+//   element_label_text_field.style.textDecorationThickness = "33%";
+//   console.log(`Item ${element.value} checked`);
+//   tasks_completed++;
+// } else {
+//   // unstrike
+//   element_label_text_field.style.textDecoration = "none";
+//   console.log(`Item ${element.value} not checked`);
+//   tasks_completed--;
+// }
+// console.log("\n");
+// console.log(element_label_text_field);
+// // update progress bar
+// update_progress_bar();
+
+/* Method for API fetch requests */
+async function get_API(url) {
   let request = await fetch(url);
   let json = await request.json();
   return json;
